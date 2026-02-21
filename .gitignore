@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# Eclipse
+eclipse/
+
+# NeoForge / Minecraft
+run/
+runs/
+logs/
+
+# Claude
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+*.class

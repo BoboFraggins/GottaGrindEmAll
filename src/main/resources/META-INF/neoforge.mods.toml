@@ -1,0 +1,51 @@
+modLoader="javafml"
+loaderVersion="[2,)"
+license="All rights reserved"
+
+[[mods]]
+modId="gottagrindemall"
+version="${file.jarVersion}"
+displayName="Gotta Grind Em All"
+authors="GottaGrindEmAll Team"
+description='''
+Combines Cobblemon with Mob Grinding Utils to let you grind mon!'''
+
+# NeoForge dependency
+[[dependencies.gottagrindemall]]
+modId="neoforge"
+type="required"
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+# Minecraft dependency
+[[dependencies.gottagrindemall]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1,)"
+ordering="NONE"
+side="BOTH"
+
+# Cobblemon hard dependency
+[[dependencies.gottagrindemall]]
+modId="cobblemon"
+type="required"
+versionRange="[1.7,)"
+ordering="AFTER"
+side="BOTH"
+
+# Mob Grinding Utils optional dependency (enhanced recipe)
+[[dependencies.gottagrindemall]]
+modId="mob_grinding_utils"
+type="optional"
+versionRange="[1.1,)"
+ordering="AFTER"
+side="BOTH"
+
+# Jade optional dependency (tooltip overlay)
+[[dependencies.gottagrindemall]]
+modId="jade"
+type="optional"
+versionRange="[15,)"
+ordering="AFTER"
+side="CLIENT"

@@ -1,0 +1,87 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.0.173'
+    id 'com.diffplug.spotless' version '6.25.0'
+}
+
+spotless {
+    java {
+        googleJavaFormat()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
+
+version = "${mod_version}+mc${minecraft_version}"
+group = mod_group
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+runs {
+    configureEach {
+        jvmArgument '-Xmx4G'
+        modSource project.sourceSets.main
+    }
+
+    client {
+        arguments.addAll('--width', '1280', '--height', '720')
+    }
+
+    server {
+        programArgument '--nogui'
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven { url = 'https://maven.neoforged.net/releases' }
+    maven { url = 'https://www.cursemaven.com' }
+    maven { url = 'https://api.modrinth.com/maven' }
+    maven {
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+
+    // Cobblemon v1.7.3 NeoForge 1.21.1 (CurseForge project 687131, file 7553231)
+    compileOnly "curse.maven:cobblemon-687131:7553231"
+
+    // Kotlin for Forge (required by Cobblemon at compile time)
+    compileOnly "thedarkcolour:kotlinforforge-neoforge:5.6.0"
+
+    // Mob Grinding Utils v1.1.10 NeoForge 1.21.1 (CurseForge project 254241, file 6804869)
+    compileOnly "curse.maven:mob-grinding-utils-254241:6804869"
+
+    // Jade (optional - tooltip overlay when looking at blocks)
+    compileOnly "maven.modrinth:jade:15.10.5+neoforge"
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title"     : mod_id,
+            "Specification-Version"   : "1",
+            "Implementation-Title"    : project.name,
+            "Implementation-Version"  : "${version}",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

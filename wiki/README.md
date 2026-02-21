@@ -1,0 +1,96 @@
+# Gotta Grind Em All - Wiki
+
+A NeoForge 1.21.1 mod that combines [Cobblemon](https://cobblemon.com/) and optionally [Mob Grinding Utils](https://www.curseforge.com/minecraft/mc-mods/mob-grinding-utils) to enable grinding and farming of Cobblemon.
+
+**Required:** Cobblemon
+**Optional:** Mob Grinding Utils
+**Optional:** Jade
+
+---
+
+## Items & Blocks
+
+### Cobblemon Egg
+
+Use on Grass, Dirt, Mycelium, or Farmland to convert a 5x5 area into Cobblemon Dirt. Consumed on use. Does not stack.
+
+### Cobblemon Dirt
+
+A block that periodically spawns random Cobblemon when the light level above it is 10 or higher and the space above is clear. Up to 8 mon can exist in an 11x5x11 area before spawning stops.
+
+Spawn rarity is controlled by configurable bucket weights (see [Configuration](#configuration)). Stacks to 64.
+
+#### Redstone Integration
+
+Cobblemon Dirt responds to redstone signals:
+
+- **Constant ON signal**: Disables natural spawning. The block will not spawn any mon while powered.
+- **Rising edge (signal turns on)**: Forces an immediate spawn attempt, ignoring the normal timer. This allows redstone clocks and pulse circuits to control spawn timing precisely.
+
+This means you can use a redstone clock to trigger spawns on demand, or power the block to pause spawning entirely. With [Jade](https://www.curseforge.com/minecraft/mc-mods/jade) installed, the tooltip will show "Spawning Disabled via Redstone" when the block is powered.
+
+### Pocket Chow
+
+Use on a Cobblemon to trigger an explosive reaction. The mon floats upward for about 1 second, then explodes with a creeper death sound and particles, dropping a **Cobblemon Egg**. Does not stack.
+
+#### Recipe
+
+The recipe changes depending on whether Mob Grinding Utils is installed.
+
+**Without Mob Grinding Utils** (default):
+
+![Pocket Chow Recipe](pocket_chow_recipe.gif)
+
+| Slot | Ingredient |
+|------|------------|
+| B | Bottle o' Enchanting |
+| A | Any Apricorn (from `cobblemon:apricorns` tag) |
+| S | Any Seeds (from `c:seeds` tag) |
+
+```
+B A B
+A S A
+B A B
+```
+
+**With Mob Grinding Utils** installed:
+
+| Slot | Ingredient |
+|------|------------|
+| B | Experience Fluid (1000 mB, from `c:experience` tag) |
+| A | Any Apricorn (from `cobblemon:apricorns` tag) |
+| S | Any Seeds (from `c:seeds` tag) |
+
+```
+B A B
+A S A
+B A B
+```
+
+---
+
+## Configuration
+
+Server-side configuration is found in `gottagrindemall-server.toml`.
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `allow_shiny` | `true` | Allow shiny mon to spawn from Cobblemon Dirt |
+| `spawn_weights.common_spawn_weight` | `100.0` | Weight for common mon spawns |
+| `spawn_weights.uncommon_spawn_weight` | `10.0` | Weight for uncommon mon spawns |
+| `spawn_weights.rare_spawn_weight` | `5.0` | Weight for rare mon spawns |
+| `spawn_weights.ultra_rare_spawn_weight` | `1.0` | Weight for ultra-rare mon spawns |
+
+Spawn weights are normalized so the total equals 100%. For example, setting common=2, uncommon=1, rare=1, ultra_rare=1 means 40% common and 20% each for the other tiers. Set a weight to 0 to disable that tier entirely.
+
+---
+
+## Regenerating Recipe Images
+
+Recipe images can be regenerated with:
+
+```
+python3 wiki/generate_recipe_images.py
+```
+
+Requires Python 3 with Pillow (`pip install Pillow`).

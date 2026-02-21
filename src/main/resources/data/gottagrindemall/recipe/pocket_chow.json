@@ -1,0 +1,33 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:not",
+      "value": {
+        "type": "neoforge:mod_loaded",
+        "modid": "mob_grinding_utils"
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:experience_bottle"
+    },
+    "A": {
+      "tag": "cobblemon:apricorns"
+    },
+    "S": {
+      "tag": "c:seeds"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "ASA",
+    "BAB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "gottagrindemall:pocket_chow"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "gottagrindemall:block/cobblemon_dirt"
+    },
+    "powered=true": {
+      "model": "gottagrindemall:block/cobblemon_dirt"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "itemGroup.gottagrindemall": "Gotta Grind 'Em All",
+  "item.gottagrindemall.cobblemon_egg": "Cobblemon Egg",
+  "tooltip.gottagrindemall.cobblemon_egg_1": "Creates a 5x5 area of Cobblemon Dirt.",
+  "tooltip.gottagrindemall.cobblemon_egg_2": "Used on Grass, Dirt, Mycelium, or Farmland.",
+  "block.gottagrindemall.cobblemon_dirt": "Cobblemon Dirt",
+  "item.gottagrindemall.pocket_chow": "Pocket Chow",
+  "tooltip.gottagrindemall.pocket_chow": "Feed to a Cobblemon to get a Cobblemon Egg.",
+  "jade.gottagrindemall.cobblemon_dirt.spawning": "Spawning Active",
+  "jade.gottagrindemall.cobblemon_dirt.too_dark": "Too Dark (%s/%s)",
+  "jade.gottagrindemall.cobblemon_dirt.redstone_disabled": "Spawning Disabled via Redstone"
+}

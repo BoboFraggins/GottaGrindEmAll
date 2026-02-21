@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "block/dirt",
+    "top": "gottagrindemall:block/cobblemon_dirt_top",
+    "side": "gottagrindemall:block/cobblemon_dirt_side"
+  }
+}
