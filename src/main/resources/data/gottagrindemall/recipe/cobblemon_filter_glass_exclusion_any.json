@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "ILI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "gottagrindemall:cobblemon_filter_glass_inclusion_any"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "id": "gottagrindemall:cobblemon_filter_glass_exclusion_any",
+    "count": 8
+  },
+  "remainingKey": {
+    "L": {
+      "item": "minecraft:bucket"
+    }
+  }
+}

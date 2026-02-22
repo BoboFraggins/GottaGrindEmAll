@@ -3,15 +3,8 @@
 ## 1.21.1.1
 
 ### Added
-- Pocket Chow now shows a tooltip explaining its usage
 - Cobblemon Dirt grounds nearby flying Cobblemon so they can be pushed by fans
-
-### Changed
-- Mob feed system now uses a registry mapping entity types to items, making it extensible beyond Cobblemon
-
-### Fixed
-- Cobblemon Dirt spawn tick chain now properly reschedules, greatly improving spawn rates
-- Cobblemon Egg tooltip now displays correctly instead of showing the localization key
+- Inclusion and Exclusion Filter Glass Blocks to filter Cobblemon by type
 
 ## 1.21.1.0 - Initial Release
 

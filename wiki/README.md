@@ -67,6 +67,80 @@ A S A
 B A B
 ```
 
+### Cobblemon Filter Glass (Inclusion, Any)
+
+A glass block that **only Cobblemon can pass through**. Players and other mobs are blocked.
+
+Periodically grounds nearby flying Cobblemon so that fans and other forced-movement devices work correctly.
+
+#### Recipe
+
+![Inclusion Glass (Any) Recipe](inclusion_any_recipe.gif)
+
+| Slot | Ingredient |
+|------|------------|
+| G | Vanilla Glass |
+| A | Any Apricorn (from `cobblemon:apricorns` tag) |
+
+```
+G G G
+G A G
+G G G
+```
+
+Produces 8 Inclusion Filter Glass (Any).
+
+---
+
+### Cobblemon Filter Glass (Exclusion, Any)
+
+A glass block that **blocks all Cobblemon** while letting players and other mobs pass through freely.
+
+Periodically grounds nearby flying Cobblemon so that fans and other forced-movement devices work correctly.
+
+#### Recipe
+
+![Exclusion Glass (Any) Recipe](exclusion_any_recipe.png)
+
+| Slot | Ingredient |
+|------|------------|
+| I | Inclusion Filter Glass (Any) |
+| L | Lava Bucket |
+
+```
+I I I
+I L I
+I I I
+```
+
+Produces 8 Exclusion Filter Glass (Any).
+
+---
+
+### Cobblemon Filter Glass (Typed)
+
+Type-specific variants of the filter glass blocks. There are 18 types matching Cobblemon's elemental types: Normal, Fire, Water, Grass, Electric, Ice, Fighting, Poison, Ground, Flying, Psychic, Bug, Rock, Ghost, Dragon, Dark, Steel, and Fairy.
+
+- **Inclusion (typed)**: Only Cobblemon of the matching type can pass through. All others are blocked.
+- **Exclusion (typed)**: Cobblemon of the matching type are blocked. Everything else passes through freely.
+
+#### Recipe
+
+![Typed Glass Recipe](typed_glass_recipe.gif)
+
+| Slot | Ingredient |
+|------|------------|
+| G | Inclusion or Exclusion Filter Glass (Any) |
+| C | Type Gem matching the desired type (e.g. `cobblemon:fire_gem`) |
+
+```
+G G G
+G C G
+G G G
+```
+
+Produces 8 typed filter glass of the corresponding variant (inclusion or exclusion) and type.
+
 ---
 
 ## Configuration

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GAG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "A": {
+      "tag": "cobblemon:apricorns"
+    }
+  },
+  "result": {
+    "id": "gottagrindemall:cobblemon_filter_glass_inclusion_any",
+    "count": 8
+  }
+}

@@ -31,3 +31,6 @@ Thumbs.db
 
 # Java
 *.class
+
+notes/
+scripts/

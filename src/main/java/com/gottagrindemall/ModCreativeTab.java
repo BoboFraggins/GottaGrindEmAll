@@ -24,6 +24,9 @@ public class ModCreativeTab {
                         output.accept(ModItems.COBBLEMON_EGG.get());
                         output.accept(ModItems.POCKET_CHOW.get());
                         output.accept(ModBlocks.COBBLEMON_DIRT_ITEM.get());
+                        ModBlocks.FILTER_GLASS_ITEMS
+                            .values()
+                            .forEach(item -> output.accept(item.get()));
                       })
                   .build());
 

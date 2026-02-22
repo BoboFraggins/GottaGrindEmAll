@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "gottagrindemall:block/filters/cobblemon/poison/exclusion_side",
+    "end": "gottagrindemall:block/filters/cobblemon/poison/exclusion_top",
+    "particle": "gottagrindemall:block/filters/cobblemon/poison/exclusion_side"
+  }
+}
