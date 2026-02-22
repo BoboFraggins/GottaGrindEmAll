@@ -1,11 +1,13 @@
 package com.gottagrindemall.blocks;
 
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.cobblemon.mod.common.entity.pokemon.ai.PokemonMoveControl;
 import com.gottagrindemall.mob_spawners.CobblemonSpawner;
 import javax.annotation.Nonnull;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.schedule.Activity;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
@@ -39,6 +41,11 @@ public class CobblemonDirt extends MobSpawningBlock {
     AABB area = new AABB(pos).inflate(GROUND_RADIUS_XZ, GROUND_HEIGHT, GROUND_RADIUS_XZ);
     for (PokemonEntity mon :
         level.getEntitiesOfClass(PokemonEntity.class, area, PokemonEntity::isFlying)) {
+      if (mon.getMoveControl() instanceof PokemonMoveControl pmc) {
+        pmc.stop();
+      }
+      mon.getNavigation().stop();
+      mon.getBrain().setActiveActivityIfPossible(Activity.IDLE);
       if (mon.couldStopFlying()) {
         mon.setFlying(false);
       }

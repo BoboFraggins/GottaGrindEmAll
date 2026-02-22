@@ -26,13 +26,6 @@ public class CobblemonSpawner extends MobSpawner {
     PokemonProperties props = PokemonProperties.Companion.parse(buildPropertiesString(target));
     PokemonEntity entity = props.createEntity(world);
 
-    if (entity.getBehaviour().getMoving().getFly().getCanFly()
-        && (!entity.getBehaviour().getMoving().getWalk().getCanWalk()
-            || entity.getBehaviour().getMoving().getWalk().getAvoidsLand())) {
-      entity.discard();
-      return Optional.empty();
-    }
-
     return Optional.of(entity);
   }
 
