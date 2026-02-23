@@ -143,6 +143,48 @@ Produces 8 typed filter glass of the corresponding variant (inclusion or exclusi
 
 ---
 
+### Cobblemon Filter Glass (Tag-based)
+
+Filter glass blocks based on Cobblemon labels rather than elemental type. Available tags:
+
+| Tag | Display Name | Recipe Ingredient |
+|-----|--------------|-------------------|
+| `starter` | Starter | Diamond |
+| `baby` | Baby | Emerald |
+| `gen1` | Generation I | Stone |
+| `gen2` | Generation II | Granite |
+| `gen3` | Generation III | Diorite |
+| `gen4` | Generation IV | Andesite |
+| `gen5` | Generation V | Deepslate |
+| `gen6` | Generation VI | Calcite |
+| `gen7` | Generation VII | Tuff |
+| `gen7b` | Generation VII-B | Basalt |
+| `gen8` | Generation VIII | Blackstone |
+| `gen8a` | Generation VIII-A | Netherrack |
+| `gen9` | Generation IX | End Stone |
+
+- **Inclusion (tagged)**: Only Cobblemon with the matching label can pass through.
+- **Exclusion (tagged)**: Cobblemon with the matching label are blocked. Everything else passes freely.
+
+#### Recipe
+
+![Tag Glass Recipe](tag_glass_recipe.gif)
+
+| Slot | Ingredient |
+|------|------------|
+| G | Inclusion or Exclusion Filter Glass (Any) |
+| C | Label ingredient (see table above) |
+
+```
+G G G
+G C G
+G G G
+```
+
+Produces 8 tag filter glass of the corresponding variant and label.
+
+---
+
 ## Configuration
 
 Server-side configuration is found in `gottagrindemall-server.toml`.

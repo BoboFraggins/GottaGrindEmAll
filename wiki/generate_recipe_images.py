@@ -30,6 +30,24 @@ FILTER_TYPES = [
     "dragon", "dark", "steel", "fairy",
 ]
 
+# Tag-based filter glass: label -> (center item path in JAR, is_block)
+# is_block=True means textures/block/<name>.png, False means textures/item/<name>.png
+TAG_LABELS = [
+    ("starter",  "textures/item/diamond.png",        False),
+    ("baby",     "textures/item/emerald.png",         False),
+    ("gen1",     "textures/block/stone.png",          True),
+    ("gen2",     "textures/block/granite.png",        True),
+    ("gen3",     "textures/block/diorite.png",        True),
+    ("gen4",     "textures/block/andesite.png",       True),
+    ("gen5",     "textures/block/deepslate.png",      True),
+    ("gen6",     "textures/block/calcite.png",        True),
+    ("gen7",     "textures/block/tuff.png",           True),
+    ("gen7b",    "textures/block/basalt_top.png",     True),
+    ("gen8",     "textures/block/blackstone.png",     True),
+    ("gen8a",    "textures/block/netherrack.png",     True),
+    ("gen9",     "textures/block/end_stone.png",      True),
+]
+
 TEXTURES_DIR = (
     PROJECT_DIR / "src/main/resources/assets/gottagrindemall/textures/block/filters/cobblemon"
 )
@@ -369,8 +387,46 @@ def generate_typed_glass_recipe():
     save_gif(frames, SCRIPT_DIR / "typed_glass_recipe.gif", duration=800)
 
 
+def generate_tag_glass_recipe():
+    """Tag glass recipe: 8 any-variant glass + center item -> 8 tagged glass.
+    Animated: cycles through all 13 tag labels x 2 variants (inclusion then exclusion).
+    Block textures are rendered isometrically; item textures are shown flat.
+    """
+    gui = load_gui_background()
+    item_size = 16 * SCALE
+
+    frames = []
+    for label, tex_path, is_block in TAG_LABELS:
+        if is_block:
+            center_tex = extract_from_jar(MC_CLIENT_JAR, f"assets/minecraft/{tex_path}")
+            center_scaled = render_isometric_block(center_tex, center_tex, item_size)
+        else:
+            center_tex = extract_from_jar(MC_CLIENT_JAR, f"assets/minecraft/{tex_path}")
+            center_scaled = load_item(center_tex, item_size)
+
+        for variant in ("inclusion", "exclusion"):
+            base_side = load_texture(TEXTURES_DIR / f"any/{variant}_side.png")
+            base_top = load_texture(TEXTURES_DIR / f"any/{variant}_top.png")
+            base_iso = render_isometric_block(base_side, base_top, item_size)
+
+            out_side = load_texture(TEXTURES_DIR / f"{label}/{variant}_side.png")
+            out_top = load_texture(TEXTURES_DIR / f"{label}/{variant}_top.png")
+            output_iso = render_isometric_block(out_side, out_top, item_size)
+
+            grid = [
+                base_iso, base_iso, base_iso,
+                base_iso, center_scaled, base_iso,
+                base_iso, base_iso, base_iso,
+            ]
+            frame = compose_frame(gui, grid, output_iso)
+            frames.append(to_gif_frame(frame))
+
+    save_gif(frames, SCRIPT_DIR / "tag_glass_recipe.gif", duration=800)
+
+
 if __name__ == "__main__":
     generate_pocket_chow_recipe()
     generate_inclusion_any_recipe()
     generate_exclusion_any_recipe()
     generate_typed_glass_recipe()
+    generate_tag_glass_recipe()

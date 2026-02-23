@@ -4,8 +4,10 @@ import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.api.types.ElementalTypes;
 import com.gottagrindemall.blocks.CobblemonDirt;
 import com.gottagrindemall.blocks.ExclusionFilterGlassAny;
+import com.gottagrindemall.blocks.ExclusionFilterGlassTagged;
 import com.gottagrindemall.blocks.ExclusionFilterGlassTyped;
 import com.gottagrindemall.blocks.InclusionFilterGlassAny;
+import com.gottagrindemall.blocks.InclusionFilterGlassTagged;
 import com.gottagrindemall.blocks.InclusionFilterGlassTyped;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -80,6 +82,42 @@ public class ModBlocks {
                         ? new InclusionFilterGlassTyped(props, elemType)
                         : new ExclusionFilterGlassTyped(props, elemType);
                   }
+                });
+        DeferredItem<BlockItem> item =
+            BLOCK_ITEMS.register(
+                id, () -> new BlockItem(block.get(), new Item.Properties().stacksTo(64)));
+        FILTER_GLASS_BLOCKS.put(id, block);
+        FILTER_GLASS_ITEMS.put(id, item);
+      }
+    }
+  }
+
+  // --- Tag-based Filter Glass Blocks ---
+  // Tags: starter, baby, gen1-gen9 (including gen7b and gen8a) × 2 variants = 26 blocks
+
+  private static final String[] TAG_FILTER_LABELS = {
+    "starter", "baby", "gen1", "gen2", "gen3", "gen4", "gen5", "gen6", "gen7", "gen7b", "gen8",
+    "gen8a", "gen9"
+  };
+
+  static {
+    for (String variant : FILTER_VARIANTS) {
+      for (String label : TAG_FILTER_LABELS) {
+        String id = "cobblemon_filter_glass_" + variant + "_" + label;
+        String capturedLabel = label;
+        DeferredBlock<Block> block =
+            BLOCKS.register(
+                id,
+                () -> {
+                  Block.Properties props =
+                      Block.Properties.of()
+                          .strength(0.3F)
+                          .sound(SoundType.GLASS)
+                          .noOcclusion()
+                          .isSuffocating((state, level, pos) -> false);
+                  return variant.equals("inclusion")
+                      ? new InclusionFilterGlassTagged(props, capturedLabel)
+                      : new ExclusionFilterGlassTagged(props, capturedLabel);
                 });
         DeferredItem<BlockItem> item =
             BLOCK_ITEMS.register(

@@ -14,7 +14,7 @@ A NeoForge 1.21.1 mod that combines [Cobblemon](https://cobblemon.com/) and [Mob
 - **Cobblemon Egg** - Converts a 5x5 area of dirt/grass into Cobblemon Dirt
 - **Cobblemon Dirt** - Spawns random Cobblemon with configurable rarity weights
 - **Pocket Chow** - Feed to a Cobblemon to make it explode into a Cobblemon Egg
-- **Inclusion/Exclusion Filter Glass** - Transparent blocks that selectively allow or block Cobblemon by type (Normal, Fire, Water, etc.), enabling type-based sorting and routing of Cobblemon through automated farms
+- **Inclusion/Exclusion Filter Glass** - Transparent blocks that selectively allow or block Cobblemon by type (Normal, Fire, Water, etc.) or by tag (Starter, Baby, Generation 3, etc.), enabling type-based sorting and routing of Cobblemon through automated farms
 
 ## Documentation
 

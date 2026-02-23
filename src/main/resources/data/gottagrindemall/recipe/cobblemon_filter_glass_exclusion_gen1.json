@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GCG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "gottagrindemall:cobblemon_filter_glass_exclusion_any"
+    },
+    "C": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "id": "gottagrindemall:cobblemon_filter_glass_exclusion_gen1",
+    "count": 8
+  }
+}

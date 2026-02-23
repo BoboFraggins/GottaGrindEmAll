@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.21.1.2
+
+### Added
+- Starter, Baby, and Generation Filter Glass Blocks
+
 ## 1.21.1.1
 
 ### Added

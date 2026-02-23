@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "gottagrindemall:block/filters/cobblemon/gen9/inclusion_side",
+    "end": "gottagrindemall:block/filters/cobblemon/gen9/inclusion_top",
+    "particle": "gottagrindemall:block/filters/cobblemon/gen9/inclusion_side"
+  }
+}
