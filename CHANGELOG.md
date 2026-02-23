@@ -4,6 +4,7 @@
 
 ### Added
 - Starter, Baby, and Generation Filter Glass Blocks
+- **Cobblemon Grounder** A block that can be used to pull nearby flying Cobblmon back down to the ground
 
 ## 1.21.1.1
 

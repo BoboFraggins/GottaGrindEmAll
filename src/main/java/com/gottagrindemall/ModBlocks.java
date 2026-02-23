@@ -3,6 +3,7 @@ package com.gottagrindemall;
 import com.cobblemon.mod.common.api.types.ElementalType;
 import com.cobblemon.mod.common.api.types.ElementalTypes;
 import com.gottagrindemall.blocks.CobblemonDirt;
+import com.gottagrindemall.blocks.CobblemonGrounder;
 import com.gottagrindemall.blocks.ExclusionFilterGlassAny;
 import com.gottagrindemall.blocks.ExclusionFilterGlassTagged;
 import com.gottagrindemall.blocks.ExclusionFilterGlassTyped;
@@ -41,6 +42,22 @@ public class ModBlocks {
   public static final DeferredItem<BlockItem> COBBLEMON_DIRT_ITEM =
       BLOCK_ITEMS.register(
           "cobblemon_dirt", () -> new BlockItem(COBBLEMON_DIRT.get(), new Item.Properties()));
+
+  public static final DeferredBlock<CobblemonGrounder> COBBLEMON_GROUNDER =
+      BLOCKS.register(
+          "cobblemon_grounder",
+          () ->
+              new CobblemonGrounder(
+                  Block.Properties.of()
+                      .mapColor(MapColor.STONE)
+                      .strength(1.5F, 6.0F)
+                      .sound(SoundType.STONE)
+                      .requiresCorrectToolForDrops()));
+
+  public static final DeferredItem<BlockItem> COBBLEMON_GROUNDER_ITEM =
+      BLOCK_ITEMS.register(
+          "cobblemon_grounder",
+          () -> new BlockItem(COBBLEMON_GROUNDER.get(), new Item.Properties()));
 
   // --- Cobblemon Filter Glass Blocks ---
   // 19 types x 2 variants (inclusion, exclusion) = 38 blocks

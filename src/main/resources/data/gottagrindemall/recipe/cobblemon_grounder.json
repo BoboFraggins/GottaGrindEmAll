@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SFS",
+    "FAF",
+    "SFS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "A": {
+      "tag": "cobblemon:apricorns"
+    }
+  },
+  "result": {
+    "id": "gottagrindemall:cobblemon_grounder",
+    "count": 1
+  }
+}
